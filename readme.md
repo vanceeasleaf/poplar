@@ -3,6 +3,13 @@
 [![license](https://img.shields.io/github/license/synyi/poplar.svg)](https://github.com/synyi/poplar/blob/master/LICENSE)
 [![version](https://img.shields.io/npm/v/poplar-annotation.svg)](https://www.npmjs.com/package/poplar-annotation)
 
+# Fork from https://github.com/synyi/poplar
+
+Add some custome features
+
+- return id when create label
+- add redo and undo
+- allow assign id when creating labels and connections
 
 A web-based annotation tool for natural language processing (NLP) needs, inspired by [brat rapid annotation tool](http://brat.nlplab.org/).
 
@@ -17,14 +24,19 @@ See [https://synyi.github.io/poplar/](https://synyi.github.io/poplar/)
 ## Quick start
 
 ### Install
+
 ```shell
 npm i poplar-annotation
 ```
+
 or if you'd like to use yarn
+
 ```shell
 yarn add poplar-annotation
 ```
+
 ### Create
+
 ```typescript
 import {Annotator} from 'poplar-annotation'
 /**
@@ -43,7 +55,6 @@ View our [API Reference](https://github.com/synyi/poplar/tree/master/doc) here.
 ## Want to contribute?
 
 See our [Developer's Guide](https://github.com/synyi/poplar/blob/master/doc/Develop_Guides.md).
-
 
 ## Support
 

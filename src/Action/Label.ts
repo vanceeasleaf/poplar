@@ -5,9 +5,10 @@ import {Label as LabelModel} from "../Store/Label";
 export namespace Label {
     export class CreateLabelAction implements IAction {
         constructor(
+          
             public readonly categoryId: number,
             public readonly startIndex: number,
-            public readonly endIndex: number) {
+            public readonly endIndex: number,  public readonly id: number) {
         }
 
         apply(store: Store) {
@@ -15,12 +16,12 @@ export namespace Label {
                 // todo: support this?
                 throw Error("Insert label across hard line is not supported now! Please remove the \\n in content first!");
             }
-            store.labelRepo.add(new LabelModel.Entity(null, this.categoryId, this.startIndex, this.endIndex, store));
+            return store.labelRepo.add(new LabelModel.Entity(this.id||null, this.categoryId, this.startIndex, this.endIndex, store));
         }
     }
 
-    export function Create(categoryId: number, startIndex: number, endIndex: number) {
-        return new CreateLabelAction(categoryId, startIndex, endIndex);
+    export function Create(categoryId: number, startIndex: number, endIndex: number,id:number) {
+        return new CreateLabelAction(categoryId, startIndex, endIndex,id);
     }
 
     export class DeleteLabelAction implements IAction {

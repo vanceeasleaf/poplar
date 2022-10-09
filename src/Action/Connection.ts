@@ -7,16 +7,16 @@ export namespace Connection {
         constructor(
             public readonly categoryId: number,
             public readonly fromId: number,
-            public readonly toId: number) {
+            public readonly toId: number,  public readonly id: number) {
         }
 
         apply(store: Store) {
-            store.connectionRepo.add(new ConnectionModel.Entity(null, this.categoryId, this.fromId, this.toId, store));
+           return  store.connectionRepo.add(new ConnectionModel.Entity(this.id||null, this.categoryId, this.fromId, this.toId, store));
         }
     }
 
-    export function Create(categoryId: number, fromId: number, toId: number) {
-        return new CreateConnectionAction(categoryId, fromId, toId);
+    export function Create(categoryId: number, fromId: number, toId: number,id:number) {
+        return new CreateConnectionAction(categoryId, fromId, toId,id);
     }
 
     export class DeleteConnectionAction implements IAction {

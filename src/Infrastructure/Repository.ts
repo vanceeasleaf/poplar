@@ -48,7 +48,7 @@ export namespace Base {
         add(value: T): number {
             if ('id' in value) {
                 let id: number = (value as any).id;
-                assert(!this.has(id), `reAdd ${id}!`);
+                // assert(!this.has(id), `reAdd ${id}!`);
                 if (id !== null) {
                     this.set(id, value);
                 } else {
